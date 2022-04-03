@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<meta
+    http-equiv="content-type"
+    content="text/html;charset=utf-8"
+  />
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="author" content="mironcoder" />
+    <meta name="email" content="mironcoder@gmail.com" />
+    <meta name="profile" content="https://themeforest.net/user/mironcoder" />
+    <meta name="name" content="vegana" />
+    <meta name="title" content="vegana - organic food html template" />
+    <meta
+      name="keywords"
+      content="vegana, organic, food, shop, ecommerce, store, html, agriculture, vegetable, organic food, organic product, organic farm, organic life, organic shop, food store"
+    />
+    <title>Vegana - Wishlist</title>
+    <link rel="icon" href="images/favicon.png" />
+    <link rel="stylesheet" href="fonts/flaticon/flaticon.css" />
+    <link rel="stylesheet" href="font-awesome/5.14.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/custom/main.css" />
+    <link rel="stylesheet" href="css/custom/wishlist.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header th:replace="~{/fragments/header :: header}"></header>
+    <!-- Nav -->
+    <nav th:replace="~{/fragments/nav :: nav}"></nav>
+    
+    <section class="single-banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="single-content">
+              <h2>Wishlist</h2>
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a th:href="@{/}" th:text="#{venaga.home}"></a></li>
+                <li class="breadcrumb-item">
+                  <a th:href="@{/products}" th:text="#{venaga.wishlist.product.list}"></a>
+                </li>
+                <li class="breadcrumb-item">
+                  <a href="#" th:text="#{venaga.wishlist.product.details}"></a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page" th:text="#{venaga.wishlist}">
+
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="wish-part">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="wish-list">
+              <table class="table-list">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col" th:text="#{venaga.shop.product}"></th>
+                    <th scope="col" th:text="#{venaga.shop.name}"></th>
+                    <th scope="col" th:text="#{venaga.shop.price}"></th>
+                    <th scope="col" th:text="#{venaga.wishlist.discount}"></th>
+                    <th scope="col" th:text="#{venaga.wishlist.shopping}"></th>
+                    <th scope="col" th:text="#{venaga.shop.action}"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr th:each="item, iState : ${cartItemWishs}">
+                    <td class="table-number"><h5>[[${iState.index + 1}]]</h5></td>
+                    <td class="table-product">
+                      <img th:src="@{'/loadImage?imageName='+${item.product.image}}" alt="product" />
+                    </td>
+                    <td class="table-name"><h5>[[${item.product.name}]]</h5></td>
+                    <td class="table-price"><h5>[['$'+ ${#numbers.formatDecimal(item.product.price - (item.product.price * item.product.discount/100), 1, 'DEFAULT', 0, 'DEFAULT')}]]</h5></td>
+                    <td class="table-status"><h5>[[${#numbers.formatDecimal(item.product.discount, 1, 'DEFAULT', 0, 'DEFAULT') + '%'}]]</h5></td>
+                    <td class="table-shop">
+                      <a th:href="@{/addToCart(productId=${item.productId})}" class="btn btn-inline" th:text="#{venaga.add.to.cart}">
+
+                      </a>
+                    </td>
+                    <td class="table-action">
+                      <a href="#"th:data-id="${item.product.productId}" th:data-name="${item.product.name}"
+							onclick="showConfigModalDialog(this.getAttribute('data-id'), this.getAttribute('data-name'))">
+                      	<i class="fas fa-trash-alt"></i>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              
+               <script>
+				function showConfigModalDialog(id, name) {
+					$('#name').text(name);
+					$('#yesOption').attr('href', '/removeWish/'+id);
+					$('#configmationId').modal('show');
+				}
+				</script>
+				
+				<!-- Modal -->
+				<div class="modal" tabindex="-1" role="dialog" id="configmationId">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" th:text="#{venaga.shop.confirm}"></h5>
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<p th:text="#{venaga.wishlist.alert}"></p>
+							</div>
+							<div class="modal-footer">
+								<a id="yesOption" type="button" class="btn btn-success" th:text="#{venaga.shop.yes}"></a>
+								<button type="button" class="btn btn-danger"
+									data-dismiss="modal" th:text="#{venaga.shop.no}"></button>
+							</div>
+						</div>
+					</div>
+				</div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="wish-btn">
+              <a th:href="@{/products}" class="btn btn-inline">
+                <i class="fas fa-undo-alt">
+                	</i><span th:text="#{venaga.shop.back.to.shop}"></span>
+                </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="news-part">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-5 col-lg-6">
+            <div class="news-content"><h2 th:text="#{venaga.subscribe.for.offers}"></h2></div>
+          </div>
+          <div class="col-md-7 col-lg-6">
+            <form class="search-form news-form">
+              <input type="text" th:placeholder="#{venaga.enter.email.address}" /><button
+                class="btn btn-inline"
+              >
+                <i class="fas fa-envelope"></i><span th:placeholder="#{venaga.subscribe}"></span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer th:replace="~{/fragments/footer :: footer}"></footer>
+    
+    <div class="footer-bottom">
+      <div class="container">
+        <p>
+          Copyright &copy; 2022. All rights reserved by -
+          <a target="_blank">BTECN1 Team</a
+          >
+        </p>
+        <ul class="pay-card">
+          <li>
+            <a href="#"><img src="images/pay-card/01.jpg" alt="payment-1" /></a>
+          </li>
+          <li>
+            <a href="#"><img src="images/pay-card/02.jpg" alt="payment-2" /></a>
+          </li>
+          <li>
+            <a href="#"><img src="images/pay-card/03.jpg" alt="payment-3" /></a>
+          </li>
+          <li>
+            <a href="#"><img src="images/pay-card/04.jpg" alt="payment-4" /></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="js/vendor/popper.min.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/custom/main.js"></script>
+  </body>
+</html>

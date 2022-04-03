@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<footer class="footer-part" th:fragment= "footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-lg-4">
+            <div class="footer-content">
+              <a href="#"><img src="images/logo.png" alt="logo" /></a>
+              <p>
+<!--                Lorem ipsum dolor sit amet, consectetur adipisicing elit.-->
+<!--                Consequatur repudiandae quisquam adipisci asperiores, ipsum ipsa-->
+<!--                repellat assumenda dolor perspiciatis.-->
+              </p>
+              <ul class="footer-icon">
+                <li>
+                  <a class="icon icon-inline" href="#"
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+                </li>
+                <li>
+                  <a class="icon icon-inline" href="#"
+                    ><i class="fab fa-twitter"></i
+                  ></a>
+                </li>
+                <li>
+                  <a class="icon icon-inline" href="#"
+                    ><i class="fab fa-linkedin-in"></i
+                  ></a>
+                </li>
+                <li>
+                  <a class="icon icon-inline" href="#"
+                    ><i class="fab fa-instagram"></i
+                  ></a>
+                </li>
+                <li>
+                  <a class="icon icon-inline" href="#"
+                    ><i class="fab fa-pinterest-p"></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="footer-content">
+              <h3 class="title" th:text="#{venaga.userfull.links}"></h3>
+              <div class="footer-widget">
+                <ul>
+                  <li><a href="#" th:text="#{venaga.my.account}">My Account</a></li>
+                  <li><a href="#" th:text="#{venaga.order.history}">Order History</a></li>
+                  <li><a href="#" th:text="#{venaga.order.tracking}">Order Tracking</a></li>
+                  <li><a href="#" th:text="#{venaga.best.seller}">Best Seller</a></li>
+                  <li><a href="#" th:text="#{venaga.new.arrivals}">New Arrivals</a></li>
+                </ul>
+                <ul>
+                  <li><a href="#">Location</a></li>
+                  <li><a href="#">Affiliates</a></li>
+                  <li><a href="#">Contact</a></li>
+                  <li><a href="#">Carrer</a></li>
+                  <li><a href="#">Faq</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-4">
+            <div class="footer-content">
+              <h3 class="title" th:text="#{venaga.download.app}"></h3>
+              <p th:text="#{venaga.download.app.content}">
+              </p>
+            </div>
+            <ul class="download-app">
+              <li>
+                <a href="#"
+                  ><img src="images/google-store.png" alt="google"
+                /></a>
+              </li>
+              <li>
+                <a href="#"><img src="images/app-store.png" alt="app" /></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+</body>
+</html>

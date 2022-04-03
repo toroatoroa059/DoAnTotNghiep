@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<nav class="navbar-part" th:fragment="nav">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="navbar-element">
+						<a class="navbar-logo" th:href="@{/}">
+							<img src="images/logo.png" alt="logo" />
+						</a>
+						<form th:action="@{/searchProduct}" class="search-form navbar-src">
+							<input type="text" name="keyword" th:value="${keyword}"  th:placeholder="#{venaga.search.anything}" />
+							<button class="btn btn-inline">
+								<i class="fas fa-search"></i><span th:text="#{venaga.search}"></span>
+							</button>
+						</form>
+						<ul class="right-widget">
+							<th:block th:if="${#request.remoteUser}">
+							<li class="navbar-item navbar-dropdown">
+								<a class="icon icon-inline" href="#">
+									<i class="fas fa-user"></i>
+								</a>
+								<ul class="dropdown-list">	
+									<li>
+										<a class="dropdown-link" th:href="@{/account}" th:text="#{venaga.user.information}">
+										</a>
+									</li>
+									<li>
+										<a class="dropdown-link" th:href="@{/logout}" th:text="#{venaga.logout}">
+										</a>
+									</li>
+								</ul>
+							</li>
+							</th:block>
+							
+							<li>
+								<a class="icon icon-inline" th:href="@{/wishlist}">
+									<i class="fas fa-heart"></i><sup>[[${totalCartItemWishs}]]</sup>
+								</a>
+							</li>
+							
+							<li>
+								<a class="icon icon-inline" th:href="@{/carts}">
+									<i class="fas fa-shopping-cart"></i><sup>[[${totalCartItems}]]</sup>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="navbar-slide">
+						<div class="navbar-content">
+							<ul class="navbar-list">
+								<li class="navbar-item active">
+									<a class="navbar-link" th:href="@{/}" th:text="#{venaga.home}"></a>
+								</li>
+								<li class="navbar-item">
+									<a class="navbar-link" th:href="@{/products}" th:text="#{venaga.all.products}"></a>
+								</li>
+								<li class="navbar-item navbar-dropdown">
+			                    	<a class="navbar-link dropdown-indicator" href="#">
+			                      		<span th:text="#{venaga.categories}"></span>
+			                      		<i class="fas fa-chevron-down"></i>
+			                    	</a>
+				                    <ul class="dropdown-list">
+				                      <li th:each="item : ${categoryList}">
+				                        <a class="dropdown-link" th:href="@{/productByCategory(categoryId=${item.categoryId})}">
+			                          		[[${item.name}]]
+				                        </a>
+				                      </li>
+				                    </ul>
+			                 	 </li>
+			                  <li class="navbar-item navbar-dropdown">
+			                    <a class="navbar-link dropdown-indicator" href="#">
+			                      <span th:text="#{venaga.suppliers}"></span>
+			                      <i class="fas fa-chevron-down"></i>
+			                    </a>
+			                    <ul class="dropdown-list">
+			                      <li th:each="item : ${supplierList}">
+			                        <a class="dropdown-link" th:href="@{/productBySupplier(supplierId=${item.id})}">
+			                          [[${item.name}]]
+			                        </a>
+			                      </li>
+			                    </ul>
+			                  </li>
+			                  	<th:block th:unless="${#request.remoteUser}">
+			                  	<li class="navbar-item">
+									<a class="navbar-link" th:href="@{/login}" th:text="#{venaga.login.register}"></a>
+								</li>
+								</th:block>
+								<li class="navbar-item">
+									<a class="navbar-link" th:href="@{/contact}" th:text="#{venaga.contact}"></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<meta
+        http-equiv="content-type"
+        content="text/html;charset=utf-8"
+/>
+<head>
+    <meta charset="UTF-8"/>
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="author" content="mironcoder"/>
+    <meta name="email" content="mironcoder@gmail.com"/>
+    <meta name="profile" content="https://themeforest.net/user/mironcoder"/>
+    <meta name="name" content="vegana"/>
+    <meta name="title" content="vegana - organic food html template"/>
+    <meta
+            name="keywords"
+            content="vegana, organic, food, shop, ecommerce, store, html, agriculture, vegetable, organic food, organic product, organic farm, organic life, organic shop, food store"
+    />
+    <title>Vegana - Contact</title>
+    <link rel="icon" href="images/favicon.png"/>
+    <link rel="stylesheet" href="fonts/flaticon/flaticon.css"/>
+    <link rel="stylesheet" href="font-awesome/5.14.0/css/all.min.css"/>
+    <link rel="stylesheet" href="css/vendor/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/custom/main.css"/>
+    <link rel="stylesheet" href="css/custom/contact.css"/>
+</head>
+<body>
+<!-- Header -->
+<header th:replace="~{/fragments/header :: header}"></header>
+<!-- Nav -->
+<nav th:replace="~{/fragments/nav :: nav}"></nav>
+
+<section class="single-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="single-content">
+                    <h2>Contact us</h2>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index-2.html" th:text="#{venaga.contact.home}"></a></li>
+                        <li class="breadcrumb-item active" aria-current="page" th:text="#{venaga.contact.contact}">
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="contact-part">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="contact-heading">
+                    <h1 class="title" th:text="#{venaga.get.in.touch}"></h1>
+                    <p>
+                        <!--                Lorem ipsum dolor sunt placeat velit quia Voluptate tenetur-->
+                        <!--                reiciendis aliquam quaerat expedita Odio sed deserunt officia.-->
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="contact-info">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h2 class="title" th:text="#{venaga.contact.find.us}"></h2>
+                    <p>Vo Van Tan, Da Nang <span>Viet Nam</span></p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="contact-info">
+                    <i class="fas fa-phone-alt"></i>
+                    <h2 class="title" th:text="#{venaga.make.a.call}"></h2>
+
+                    <a style = "padding-right: 25px;
+                        display: block ;
+                        margin: 10px 0 0 24px;
+                        color: black"
+                       href="tel:0913978346"
+                       onMouseOver="this.style.color='green'"
+                       onMouseOut="this.style.color='black'"
+                    > 0913978346<a style = "color: black" href="tel:0379658243" onMouseOver="this.style.color='green'"
+                                   onMouseOut="this.style.color='black'">0379658243</a></a>
+
+
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="contact-info">
+                    <i class="fas fa-envelope"></i>
+                    <h2 class="title" th:text="#{venaga.contact.send.mail}"></h2>
+                    <p>Email: <span>longnguyenainhi@gmail.com</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <form class="contact-form">
+                    <label class="contact-label"
+                    ><input type="text" th:placeholder="#{venaga.contact.your.name}"/><i
+                            class="fas fa-user"
+                    ></i></label
+                    ><label class="contact-label"
+                ><input type="text" th:placeholder="#{venaga.contact.your.email}" /><i
+                        class="fas fa-envelope"
+                ></i></label
+                ><label class="contact-label"
+                ><input type="text" th:placeholder="#{venaga.contact.your.subject}" /><i
+                        class="fas fa-bookmark"
+                ></i></label
+                ><label class="contact-label">
+                <textarea th:placeholder="#{venaga.contact.your.message}"></textarea
+                ><i class="fas fa-pen-nib"></i></label
+                >
+                    <button class="btn btn-inline">
+                        <i class="fas fa-paper-plane"></i><span th:text="#{venaga.contact.send.message}"></span>
+                    </button>
+                </form>
+            </div>
+            <div class="col-lg-6">
+                <div class="contact-map">
+                    <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3833.9669801135237!2d108.2005803147779!3d16.067203188882207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3142184d687c0ddd%3A0x532210d879f8c3d1!2zNjYgVsO1IFbEg24gVOG6p24sIENow61uaCBHacOhbiwgVGhhbmggS2jDqiwgxJDDoCBO4bq1bmcgNTUwMDAwLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1647748786192!5m2!1svi!2s"
+                            width="100%"
+                            height="100%"
+                            frameborder="0"
+                            style="border: 0"
+                            allowfullscreen="100%"
+                            aria-hidden="false"
+                            tabindex="0">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="news-part">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 col-lg-6">
+                <div class="news-content"><h2 th:text="#{venaga.subscribe.for.offers}"></h2></div>
+            </div>
+            <div class="col-md-7 col-lg-6">
+                <form class="search-form news-form">
+                    <input type="text" th:placeholder = "#{venaga.enter.email.address}"/>
+                    <button
+                            class="btn btn-inline"
+                    >
+                        <i class="fas fa-envelope"></i><span th:text="#{venaga.subscribe}"></span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer th:replace="~{/fragments/footer :: footer}"></footer>
+
+<div class="footer-bottom">
+    <div class="container">
+        <p>
+            Copyright &copy; 2022. All rights reserved by -
+            <a target="_blank">BTECN1 Team</a
+            >
+        </p>
+        <ul class="pay-card">
+            <li>
+                <a href="#"><img src="images/pay-card/01.jpg" alt="payment-1"/></a>
+            </li>
+            <li>
+                <a href="#"><img src="images/pay-card/02.jpg" alt="payment-2"/></a>
+            </li>
+            <li>
+                <a href="#"><img src="images/pay-card/03.jpg" alt="payment-3"/></a>
+            </li>
+            <li>
+                <a href="#"><img src="images/pay-card/04.jpg" alt="payment-4"/></a>
+            </li>
+        </ul>
+    </div>
+</div>
+<script src="js/vendor/jquery-1.12.4.min.js"></script>
+<script src="js/vendor/popper.min.js"></script>
+<script src="js/vendor/bootstrap.min.js"></script>
+<script src="js/custom/main.js"></script>
+</body>
+</html>
